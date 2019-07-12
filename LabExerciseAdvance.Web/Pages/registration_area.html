@@ -1,0 +1,29 @@
+<div class="col-md-4">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-4" for="status">Registration:</label>
+            <div class="col-md-8">
+                <select required class="form-control" ng-model="registrationType" id="status">
+                    <!-- <option value=""></option> -->
+                    <option ng-repeat="registration in registrations" value="{{registration.name}}">
+                        {{registration.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-md-1" for="status">Search: </label>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="firstName" placeholder="Enter First Name"
+                    ng-model="firstName" required>
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" ng-model="lastName"
+                    required>
+            </div>
+        </div>
+    </div>
+</div>

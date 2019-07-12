@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="LabExercise">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="Angularjs/angular.js"></script>
+    <script src="Angularjs/angular-route.js"></script>
+    <script src="Pages/js/app.js"></script>
+    <script src="Pages/js/PersonController.js"></script>
+    <script src="Pages/js/PersonAddController.js"></script>
+    <script src="Pages/js/SchoolRegistrationController.js"></script>
+    <script src="Pages/js/VotersRegistrationController.js"></script>
+    <script src="Pages/js/DayCareRegistrationController.js"></script>
+    <script src="Pages/js/RegistrationController.js"></script>
+
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="Pages/css/site.css">
+    <title>Lab Exercise</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/#!/">Lab Exercise</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/#!/">Home</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-expanded="false">Registration <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/#!/voters">Voters Registration</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/#!/school">School Registration</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/#!/daycare">DayCare Registration</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="content">
+            <div ng-view></div>
+        </div>
+
+        <nav class="navbar navbar-default ">
+            <p class="navbar-text">&copy; 2019</p>
+        </nav>
+    </div>
+</body>
+
+<script src="jQuery/jquery.js"></script>
+<script src="Bootstrap/js/bootstrap.js"></script>
+
+</html>
