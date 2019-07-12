@@ -11,11 +11,11 @@ namespace LabExerciseAdvance.API.Controllers
     [ApiController]
     public class SchoolRegistrationController : ControllerBase
     {
-        readonly LabExerciseDBContext _context;
+        readonly PersonRepository _repo;
         readonly IRegistration<Child> _registration;
-        public SchoolRegistrationController(LabExerciseDBContext context)
+        public SchoolRegistrationController()
         {
-            _context = context;
+            _repo = new PersonRepository();
             _registration = new SchoolRegistration<Child>();
         }
         // GET: api/[controller]
@@ -27,6 +27,32 @@ namespace LabExerciseAdvance.API.Controllers
                 var results = _registration.GetRegisteredPersons().ToPersonView().ToList();
 
                 return Ok(results);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        // POST: api/[controller]/{id}
+        [HttpPost("{id:int}")]
+        public ActionResult Post(int id)
+        {
+            try
+            {
+                Person person = _repo.GetSpecific(id);
+                if (person == null)
+                {
+                    throw new Exception("No Record Found");
+                }
+
+                if (!person.TryParseTo(typeof(Child), out Child convertedPerson))
+                {
+                    throw new Exception("Person is not " + typeof(Child).Name);
+                }
+                _registration.RegisterPerson(convertedPerson);
+
+                return Ok();
             }
             catch (Exception ex)
             {

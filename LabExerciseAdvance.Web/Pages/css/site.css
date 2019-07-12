@@ -16,3 +16,6 @@
 form.person-add input[type="radio"]{
     margin-top: 10px;
 }
+.footer{
+    margin-bottom: 0;
+}

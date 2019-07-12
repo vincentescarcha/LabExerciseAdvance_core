@@ -21,8 +21,8 @@
 		//$filter('date')('2019-02-13', "dd/MM/yyyy");
 
 		var onError = function (reason) {
-			$scope.error = "Error:";
-			alert("Error Fetching")
+			$scope.error = "Error:" + reason.data;
+			alert($scope.error);
 		};
 
 		$scope.getData = function () {

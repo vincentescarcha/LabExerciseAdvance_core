@@ -25,7 +25,8 @@ namespace LabExerciseAdvance
 
         public bool IsPersonRegistered(T Person)
         {
-            return RegisteredPersons.Any(p => p.ID == Person.ID);
+            //return RegisteredPersons.Any(p => p.ID == Person.ID); // old
+            return GetRegisteredPersons().Any(p => p.ID == Person.ID);
         }
 
         public bool IsPersonValid(T Person)
@@ -44,7 +45,10 @@ namespace LabExerciseAdvance
         public void RegisterPerson(T Person)
         {
             IsPersonValid(Person);
-            RegisteredPersons.Add(Person);
+            //RegisteredPersons.Add(Person); //old
+            Person.Registration = _context.Registration.SingleOrDefault(x => x.Name == "DayCareRegistration");
+            _context.Update(Person);
+            _context.SaveChanges();
         }
 
         public void UnregisterPerson(int personId)

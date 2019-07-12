@@ -34,7 +34,9 @@ namespace LabExerciseAdvance
         }
         public Person GetSpecific(int id)
         {
-            return _persons.SingleOrDefault(x => x.ID == id);
+            //return _persons.SingleOrDefault(x => x.ID == id);
+            return _context.Persons.SingleOrDefault(x=>x.ID == id);
+
         }
         public void LoadFromCSV(string fileName)
         {
